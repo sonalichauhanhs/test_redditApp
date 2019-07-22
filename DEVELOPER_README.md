@@ -1,10 +1,10 @@
-#PROJECT ARCHITECTURE:
+# PROJECT ARCHITECTURE:
 We have used Ignite framework, (Ignite is a generator for React Native with boilerplates, plugins, and more.) Link: https://github.com/infinitered/ignite
 It create the well project structure with default screen.
 Ignite provides the packages of Redux, but we have not used Redux in this task due to time constraints.
 Source code is well commented.
 
-#WHAT WE DID:
+# WHAT WE DID:
 
 We have created app as per given designs.
 
@@ -28,7 +28,7 @@ We have created app as per given designs.
 
 - Used npm package 'moment' to display date(convert timestamp to date format).
 
-#TO RUN APP, FOLLOW THE BELOW INSTRUCTION:
+# TO RUN APP, FOLLOW THE BELOW INSTRUCTION:
 - Download "Android Studio" from "https://developer.android.com/studio/"
 - Follow the installation steps for Android Studio
 - Open Simulator from Android Studio to run app in simulator (keep it open)
