@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity, FlatList, Image } from 'react-native';
 import { Container, Header, Title, Icon, Footer, FooterTab, Badge, Content, Right } from 'native-base';
 import { DrawerActions } from 'react-navigation';
+import Moment from 'moment';
 import styles from './PostScreenStyle';
 
 export default class PostScreen extends Component {
@@ -61,26 +62,30 @@ export default class PostScreen extends Component {
 
                 <Content style={styles.content}>
                     <FlatList data={this.state.dataSource} style={{ width: '100%' }}
-                        renderItem={({ item }) =>
-                            <View style={{ width: '50%' }}>
-                                <TouchableOpacity activeOpacity={0.9} onPress={this.getListItem.bind(this, item.data)}>
-                                    <View style={styles.container} >
-                                        <Image
-                                            source={{ uri: item.data.thumbnail }}
-                                            style={styles.imageThumb}
-                                        />
-                                        <View style={{ flexDirection: 'row' }}>
-                                            <Text style={styles.dateStyle}>
-                                                {item.data.created}
+                        renderItem={({ item }) => {
+                            var date = Moment.unix(item.data.created).format("MMM DD");
+                            return (
+                                <View style={{ width: '50%' }}>
+                                    <TouchableOpacity activeOpacity={0.9} onPress={this.getListItem.bind(this, item.data)}>
+                                        <View style={styles.container} >
+                                            <Image
+                                                source={{ uri: item.data.thumbnail }}
+                                                style={styles.imageThumb}
+                                            />
+                                            <View style={{ flexDirection: 'row' }}>
+                                                <Text style={styles.dateStyle}>
+                                                    {date}
+                                                </Text>
+                                                <Text style={styles.commentCountStyle}>{item.data.num_comments < 1000 ? item.data.num_comments : Math.floor(item.data.num_comments / 1000) + 'k'}</Text>
+                                            </View>
+                                            <Text numberOfLines={2} style={styles.titleStyle}>
+                                                {item.data.title}
                                             </Text>
-                                            <Text style={styles.commentCountStyle}>{item.data.num_comments}</Text>
                                         </View>
-                                        <Text numberOfLines={2} style={styles.titleStyle}>
-                                            {item.data.title}
-                                        </Text>
-                                    </View>
-                                </TouchableOpacity>
-                            </View>
+                                    </TouchableOpacity>
+                                </View>
+                            )
+                        }
                         }
                         numColumns={2}
                         keyExtractor={(item, index) => index

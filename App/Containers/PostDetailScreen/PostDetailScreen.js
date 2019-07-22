@@ -42,10 +42,10 @@ export default class PostDetailScreen extends Component {
                         ) : (
                                 null
                             )}
-                        
+
                         <View>
                             <View style={{ flexDirection: 'row' }}>
-                                <Text style={styles.commentCountStyle}>{this.state.postdetail.num_comments}</Text>
+                                <Text style={styles.commentCountStyle}> {this.state.postdetail.num_comments < 1000 ? this.state.postdetail.num_comments : Math.floor(this.state.postdetail.num_comments / 1000) + 'k'}</Text>
                                 <Text style={styles.dateStyle}>Date</Text>
                                 <Text style={styles.dateStyle}>By {this.state.postdetail.author}</Text>
                             </View>

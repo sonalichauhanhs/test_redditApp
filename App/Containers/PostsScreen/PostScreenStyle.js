@@ -5,15 +5,10 @@ import { HEIGHT, WIDTH } from '../../Themes/CustomDimension';
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
   container: {
-    // marginLeft:10,
-    // marginRight:10,
-    // paddingLeft:10,
-    // paddingRight:10,
     flex: 1,
   },
   content: {
-    paddingLeft: 10,
-    paddingRight: 10,
+    padding:10
   },
   titleTextColor: {
     marginTop: (HEIGHT * 0.20),
@@ -114,8 +109,6 @@ export default StyleSheet.create({
     borderColor: '#2289dc',
     paddingLeft: 15,
     paddingRight: 15
-
-
   },
   piker: {
     borderWidth: 1,
